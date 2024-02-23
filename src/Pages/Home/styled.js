@@ -121,6 +121,7 @@ export const BaseCard = styled.article`
     width: 100%;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
 `;
 
 export const Card = styled.figure`
@@ -149,3 +150,94 @@ export const Card = styled.figure`
         }
     }
 `;
+
+export const Gestora = styled.section`
+    margin: 2em 0;
+
+    p{
+        text-align: center;
+        font-size: 25px;
+        font-weight: bold;
+        color: #F4A50B;
+        &:first-child{
+            color: #000;
+            font-weight: normal;
+            font-size: 2em;
+        }
+    }
+`;
+export const Instituicao = styled.section`
+    width: 100%;
+
+    h4{
+        font-size: 5em;
+        color: #F4A50B;
+        text-align: center;
+        font-style: italic;
+    }
+
+    figure{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+
+        img{
+            width: 250px;
+            border-radius: 20%;
+        }
+    }
+
+    article{
+        width: 100%;
+        max-width: 720px;
+        margin: 1em auto;
+        text-align: center;
+        padding: 1em;
+        border-radius: 20px;
+        background-color: #F4A50B;
+        p{
+            font-size: 20px;
+        }
+    }
+`;
+export const Novidades = styled.section`
+    padding: 0 1em;
+    display: flex;
+    justify-content: space-around;
+    article{
+        width: 100%;
+        max-width: 720px;
+        img{
+            width: 400px;
+            height: 500px;
+            
+        }
+    }
+    h5{
+        font-size: 5em;
+        color: #F4A50B;
+        font-style: italic;
+    }
+`;
+export const Evento = styled.div`
+
+    width: 100%;
+    height: 70px;
+    background-color: #ddd;
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+    padding: 0.3em;
+
+    margin-bottom: 1em;
+    flex-wrap: wrap;
+    div{
+        &:first-child{
+            width: 70px;
+            text-align: center;
+            font-weight: bold;
+        }
+    }
+
+`   

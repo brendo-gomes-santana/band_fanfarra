@@ -9,8 +9,10 @@ import banda_tocando from '../../Image/banda-tocando.png';
 import ensaio_da_banda from '../../Image/Ensaio-da-banda.png';
 import desfile_escolar from '../../Image/desfile-escolar.png'
 import banda_completa from '../../Image/banda-completa.png';
+import musico_musico from '../../Image/logo-musico.jpg';
+import logo_vila_da_barra from '../../Image/logo-vila-da-barra.png';
 
-import { BaseCard, Capa, Card, Instrutores, Logos, Projeto, Release } from "./styled";
+import { BaseCard, Capa, Card, Instrutores, Logos, Projeto, Release,Gestora, Instituicao, Novidades, Evento } from "./styled";
 
 export default function Home() {
 
@@ -70,9 +72,63 @@ export default function Home() {
                             Apresentação Oficial deu-se início nos Jogos Escolares Internos DDZ-SUL / SEMED.
                         </figcaption>
                     </Card>
-
                 </BaseCard>
             </Release>
+            <Gestora>
+                <p>Alice Cristina de Olveira Bozetto</p>
+                <p>Gestora escolar</p>
+            </Gestora>
+            <Instituicao>
+                <h4>INSTITUIÇÃO</h4>
+                <figure>
+                    <img src={logo_vila_da_barra} alt="logo-vila-da-barra"/>
+                    <img src={musico_musico} alt="logo-musico"/>
+                </figure>
+                <article>
+                    <p>
+                        <strong>BAMFPA</strong>
+                    </p>
+                    <p>
+                    Oficialmente somos gerenciados pelo Instituto Musical Vila Da Barra através do projeto “Educando Com Música” 
+                    desde 2022. Pertence ao Distrital De Zona - SUL Da Secretaria Municipal De Educação - SEMED  
+                    </p>
+                </article>
+            </Instituicao>
+            <Novidades>
+                <article>
+                    <h5>NOVIDADES</h5>
+                    <Evento>
+                        <div>
+                            <p>21/02</p>
+                        </div>
+                        <div>
+                            <p>Lançamento do chamado para o ano letivo da banda marcial em 2024.</p>
+                        </div>
+                    </Evento>
+                    <Evento>
+                        <div>
+                            <p>21/02</p>
+                        </div>
+                        <div>
+                            <p>Lançamento do chamado para o ano letivo da banda marcial em 2024.</p>
+                        </div>
+                    </Evento>
+                    <Evento>
+                        <div>
+                            <p>21/02</p>
+                        </div>
+                        <div>
+                            <p>Lançamento do chamado para o ano letivo da banda marcial em 2024.</p>
+                        </div>
+                    </Evento>
+                </article>
+                <article>
+                    <img src={require('../../Image/todos-juntos.jpg')} alt="todos-juntos" />
+                    <video width="300" height="500" controls> 
+                        <source src={require('../../Image/2024-vindo.mp4')}/>
+                    </video>
+                </article>
+            </Novidades>
             <Comunicacao />
         </>
     )
