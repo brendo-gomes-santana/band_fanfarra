@@ -5,8 +5,12 @@ import Header from "../../Components/Header";
 
 import Logo from '../../Image/logo.png';
 import Logo_colegio from '../../Image/logo-colegio.png';
-import banda_tocando from '../../Image/banda-tocando.png'
-import { Capa, Instrutores, Logos, Projeto } from "./styled";
+import banda_tocando from '../../Image/banda-tocando.png';
+import ensaio_da_banda from '../../Image/Ensaio-da-banda.png';
+import desfile_escolar from '../../Image/desfile-escolar.png'
+import banda_completa from '../../Image/banda-completa.png';
+
+import { BaseCard, Capa, Card, Instrutores, Logos, Projeto, Release } from "./styled";
 
 export default function Home() {
 
@@ -41,6 +45,34 @@ export default function Home() {
                         projeto. Tendo encerramento no dia 11/12/2023 ( Último Ensaio Do Ano ).</p>
                 </article>
             </Projeto>
+            <Release>
+                <h3>Release</h3>
+                <BaseCard>
+                    <Card>
+                        <img src={ensaio_da_banda} alt="ensaio_da_banda" />
+                        <figcaption>
+                            <strong>ENSAIO</strong>
+                            Ensaio do Nipe de Sopro dirigindo pelo <a href={instagram_welem} target="blank"> instrutor Welem Silva</a>
+                        </figcaption>
+                    </Card>
+                    <Card>
+                        <img src={desfile_escolar} alt="desfile_escolar" />
+                        <figcaption>
+                            <strong>DESFILE ESCOLAR</strong>
+                            Desfile escolar 2023 no dia 04/09/2023. Deu-se início às 07h30
+                            com término às 09h00 na <a href="https://g.co/kgs/YL3BKQX" target="blank">Escola Municipal Olavo Bilac</a> no Parque das Nações.
+                        </figcaption>
+                    </Card>
+                    <Card>
+                        <img src={banda_completa} alt="banda-completa" />
+                        <figcaption>
+                            <strong>1° APRESENTAÇÃO 2023</strong>
+                            Apresentação Oficial deu-se início nos Jogos Escolares Internos DDZ-SUL / SEMED.
+                        </figcaption>
+                    </Card>
+
+                </BaseCard>
+            </Release>
             <Comunicacao />
         </>
     )

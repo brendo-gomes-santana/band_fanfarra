@@ -55,6 +55,13 @@ export const Projeto = styled.section`
         height: 30em;
         border-radius: 20px;
         box-shadow: 0.5em 0.5em 1em #F4A50B;
+        transition: 0.5s;
+
+        &:hover{
+            transform: scale(1.03);
+            box-shadow: 1em 1em 1em #F4A50B;
+
+        }
     }
 
     article{
@@ -73,5 +80,72 @@ export const Projeto = styled.section`
             font-weight: bold;
         }
     
+    }
+`;
+export const Release = styled.section`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h3{
+        font-size: 5em;
+        font-style: italic;
+        position: relative;
+        color: #F4A50B;
+        &::after{
+            content: " ";
+            width: 100px;
+            height: 2px;
+            background-color: #F4A50B;
+            position: absolute;
+            top: 60%;
+            right: -100px;
+            transform: translateY(-50%);
+        }
+
+        &::before{
+            content: " ";
+            width: 100px;
+            height: 2px;
+            background-color: #F4A50B;
+            position: absolute;
+            top: 60%;
+            transform: translateY(-50%);
+            left: -100px;
+        }
+    }
+
+`;
+export const BaseCard = styled.article`
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+`;
+
+export const Card = styled.figure`
+    width: 100%;
+    max-width: 26em;
+
+    img{
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    figcaption{
+
+        display: flex;
+        flex-direction: column;
+
+        text-align: center;
+        font-size: 20px;
+        strong{
+            color: #F4A50B;
+            font-size: 25px;
+        }
+
+        a{
+            font-weight: bold;
+        }
     }
 `;

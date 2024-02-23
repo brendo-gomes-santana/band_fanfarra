@@ -11,7 +11,7 @@ export const Main = styled.header`
     
     display: flex;
     justify-content: center;
-
+    z-index: 1000;
     img{
         width: 6em;
     }
