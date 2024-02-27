@@ -1,7 +1,10 @@
 import { FaDrum } from "react-icons/fa6";
+import { IoLocationSharp } from "react-icons/io5";
+import { GiDrum } from "react-icons/gi";
 
 import Comunicacao from "../../Components/Comunicacao";
 import Header from "../../Components/Header";
+import Mapa from "../../Components/Mapa";
 
 import Logo from '../../Image/logo.png';
 import Logo_colegio from '../../Image/logo-colegio.png';
@@ -12,7 +15,7 @@ import banda_completa from '../../Image/banda-completa.png';
 import musico_musico from '../../Image/logo-musico.jpg';
 import logo_vila_da_barra from '../../Image/logo-vila-da-barra.png';
 
-import { BaseCard, Capa, Card, Instrutores, Logos, Projeto, Release,Gestora, Instituicao, Novidades, Evento } from "./styled";
+import { BaseCard, Capa, Card, Instrutores, Logos, Projeto, Release,Gestora, Instituicao, Novidades, Evento, Localizacao } from "./styled";
 
 export default function Home() {
 
@@ -79,7 +82,9 @@ export default function Home() {
                 <p>Gestora escolar</p>
             </Gestora>
             <Instituicao>
-                <h4>INSTITUIÇÃO</h4>
+                <h4>
+                    <GiDrum/> INSTITUIÇÃO <GiDrum/>
+                </h4>
                 <figure>
                     <img src={logo_vila_da_barra} alt="logo-vila-da-barra"/>
                     <img src={musico_musico} alt="logo-musico"/>
@@ -130,6 +135,18 @@ export default function Home() {
                 </article>
             </Novidades>
             <Comunicacao />
+            <Localizacao>
+                    <h6>
+                       <IoLocationSharp/> Localição
+                    </h6>
+                    <figure>
+                        <Mapa/>
+                        <figcaption>
+                            <strong>Enderenço: </strong>
+                            R. Padre Monteiro de Noronha, 285 - Flores, Manaus - AM, 69028-242
+                        </figcaption>
+                    </figure>
+            </Localizacao>
         </>
     )
 }

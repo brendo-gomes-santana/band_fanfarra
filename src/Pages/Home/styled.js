@@ -168,7 +168,7 @@ export const Gestora = styled.section`
 `;
 export const Instituicao = styled.section`
     width: 100%;
-
+    padding: 1em 0;
     h4{
         font-size: 5em;
         color: #F4A50B;
@@ -201,7 +201,7 @@ export const Instituicao = styled.section`
     }
 `;
 export const Novidades = styled.section`
-    padding: 0 1em;
+    padding: 3em 1em;
     display: flex;
     justify-content: space-around;
     article{
@@ -240,4 +240,27 @@ export const Evento = styled.div`
         }
     }
 
-`   
+`
+export const Localizacao = styled.section`
+    padding: 1em;
+
+    h6{
+        font-size: 5em;
+        color: #F4A50B;
+        font-style: italic;  
+    }
+
+    figure{
+        display: flex;
+        flex-wrap: wrap;
+        figcaption{
+
+            font-size: 20px;
+
+            padding: 1em;
+            strong{
+                color: #F4A50B;
+            }
+        }
+    }
+`;
