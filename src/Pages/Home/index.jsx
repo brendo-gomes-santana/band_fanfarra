@@ -7,6 +7,7 @@ import { GiDrum } from "react-icons/gi";
 import Comunicacao from "../../Components/Comunicacao";
 import Header from "../../Components/Header";
 import Mapa from "../../Components/Mapa";
+import Footer from "../../Components/Footer";
 
 import Logo from '../../Image/logo.png';
 import Logo_colegio from '../../Image/logo-colegio.png';
@@ -166,6 +167,7 @@ export default function Home() {
                         </figcaption>
                     </figure>
             </Localizacao>
+            <Footer/>
         </>
     )
 }
