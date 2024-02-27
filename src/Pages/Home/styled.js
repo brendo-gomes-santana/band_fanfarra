@@ -1,5 +1,13 @@
 import styled  from "styled-components";
 
+const sizes = {
+    mobileM: `(max-width: 425px)`,
+    tablet: `(min-width: 768px)`,
+    laptop: `(min-width: 1024px)`,
+    laptopL: `(min-width: 1440px)`,
+    desktop: `(min-width: 2560px')`,
+  };
+
 export const Capa = styled.section`
     padding: 7em 1em 0 1em;
     h1{
@@ -10,6 +18,13 @@ export const Capa = styled.section`
         line-height: 1em;
         
     }
+
+    @media ${sizes.mobileM}{
+        padding: 7em 1em 0 1em;
+        h1{
+            font-size: 2em;
+        }
+    }
 `;
 export const Instrutores = styled.article`
     display: flex;
@@ -18,6 +33,12 @@ export const Instrutores = styled.article`
     p{
         font-size: 25px;
         font-family: "Sacramento";
+    }
+
+    @media ${sizes.mobileM}{
+        p{
+            font-size: 15px;
+        }
     }
 `;
 
@@ -44,29 +65,41 @@ export const Logos = styled.article`
         width: 22em;
         height: 20em;
     }
+
+    @media ${sizes.mobileM}{
+        padding-top: 1em;
+        div{
+            img{
+                width: 10em;
+                height: 20vh;
+            }
+            p{
+                font-size: 12px;
+            }
+        }
+
+        img{
+            width: 10em;
+            height: 20vh;
+        }
+    }
 `;
 
 export const Projeto = styled.section`
     padding: 1em 5em;
     display: flex;
-    
+    flex-wrap: wrap-reverse;
     img{
         width: 35em;
         height: 30em;
         border-radius: 20px;
         box-shadow: 0.5em 0.5em 1em #F4A50B;
         transition: 0.5s;
-
-        &:hover{
-            transform: scale(1.03);
-            box-shadow: 1em 1em 1em #F4A50B;
-
-        }
     }
 
     article{
         margin-left: 2em;
-
+        width: 720px;
         h2{
             font-size: 5em;
             color: #F4A50B;
@@ -80,6 +113,26 @@ export const Projeto = styled.section`
             font-weight: bold;
         }
     
+    }
+
+    @media ${sizes.mobileM}{
+        padding: 1em;
+
+        img{
+            width: 100%;
+            height: 50vh;
+        }
+
+        article{
+            margin-left: 0;
+
+            h2{
+                font-size: 3em;
+            }
+            p{
+                font-size: 1em;
+            }
+        }
     }
 `;
 export const Release = styled.section`

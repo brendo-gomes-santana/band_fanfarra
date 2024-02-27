@@ -15,4 +15,5 @@ export const Main = styled.header`
     img{
         width: 6em;
     }
+
 `;
