@@ -1,6 +1,6 @@
 import styled  from "styled-components";
 
-const sizes = {
+export const sizes = {
     mobileM: `(max-width: 926px)`,
     tablet: `(min-width: 768px)`,
     laptop: `(min-width: 1024px)`,
