@@ -151,9 +151,6 @@ export default function Home() {
                 </article>
                 <article data-aos="fade-up">
                     <img src={require('../../Image/todos-juntos.jpg')} alt="todos-juntos" />
-                    <video width="300" height="500" controls> 
-                        <source src={require('../../Image/2024-vindo.mp4')}/>
-                    </video>
                 </article>
             </Novidades>
             <Comunicacao />

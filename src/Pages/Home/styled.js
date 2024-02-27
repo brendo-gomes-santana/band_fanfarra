@@ -1,7 +1,7 @@
 import styled  from "styled-components";
 
 const sizes = {
-    mobileM: `(max-width: 425px)`,
+    mobileM: `(max-width: 926px)`,
     tablet: `(min-width: 768px)`,
     laptop: `(min-width: 1024px)`,
     laptopL: `(min-width: 1440px)`,
@@ -167,7 +167,11 @@ export const Release = styled.section`
             left: -100px;
         }
     }
-
+    @media ${sizes.mobileM}{
+        h3{
+            font-size: 3em;
+        }
+    }
 `;
 export const BaseCard = styled.article`
     display: flex;
@@ -202,6 +206,17 @@ export const Card = styled.figure`
             font-weight: bold;
         }
     }
+
+    @media ${sizes.mobileM}{
+        padding: 1em;
+
+        figcaption{
+            font-size: 1em;
+            strong{
+                font-size: 1.5em;
+            }
+        }
+    }
 `;
 
 export const Gestora = styled.section`
@@ -218,10 +233,19 @@ export const Gestora = styled.section`
             font-size: 2em;
         }
     }
+    @media ${sizes.mobileM}{
+        p{
+            font-size: 1em;
+            &:first-child{
+                font-size: 1.5em;
+            }
+        }
+    }
 `;
 export const Instituicao = styled.section`
     width: 100%;
     padding: 1em 0;
+
     h4{
         font-size: 5em;
         color: #F4A50B;
@@ -241,7 +265,7 @@ export const Instituicao = styled.section`
     }
 
     article{
-        width: 100%;
+        width: 90%;
         max-width: 720px;
         margin: 1em auto;
         text-align: center;
@@ -252,24 +276,57 @@ export const Instituicao = styled.section`
             font-size: 20px;
         }
     }
+
+    @media ${sizes.mobileM}{
+        h4{
+            font-size: 2.5em;
+        }
+
+        figure{
+            img{
+                width: 150px;
+            }
+        }
+        article{
+            p{
+                font-size: 1em;
+            }
+        }
+
+    }
 `;
 export const Novidades = styled.section`
     padding: 3em 1em;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
+    
     article{
         width: 100%;
         max-width: 720px;
+
+       &:last-child{
+        display: flex;
+        justify-content: center;
+       }
+
         img{
-            width: 400px;
+            width: 100%;
+            max-width: 400px;
             height: 500px;
-            
+            border-radius: 13px;
         }
     }
     h5{
         font-size: 5em;
         color: #F4A50B;
         font-style: italic;
+    }
+
+    @media ${sizes.mobileM}{
+        h5{
+            font-size: 3em;
+        }
     }
 `;
 export const Evento = styled.div`
@@ -314,6 +371,13 @@ export const Localizacao = styled.section`
             strong{
                 color: #F4A50B;
             }
+        }
+    }
+
+
+    @media ${sizes.mobileM}{
+        h6{
+            font-size: 3em;
         }
     }
 `;

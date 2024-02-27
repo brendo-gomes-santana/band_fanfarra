@@ -7,7 +7,7 @@ export const Main = styled.div`
     
     display: flex;
     flex-direction: column-reverse;
-
+    z-index: 200;
     img{
         width: 70px;
         padding: 0.1em 0.7em;
