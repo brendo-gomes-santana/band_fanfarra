@@ -41,7 +41,6 @@ export const Instrutores = styled.article`
         }
     }
 `;
-
 export const Logos = styled.article`
     display: flex;
     justify-content: space-around;
@@ -84,7 +83,6 @@ export const Logos = styled.article`
         }
     }
 `;
-
 export const Projeto = styled.section`
     padding: 1em 5em;
     display: flex;
@@ -180,7 +178,6 @@ export const BaseCard = styled.article`
     align-items: center;
     flex-wrap: wrap;
 `;
-
 export const Card = styled.figure`
     width: 100%;
     max-width: 26em;
@@ -218,7 +215,6 @@ export const Card = styled.figure`
         }
     }
 `;
-
 export const Gestora = styled.section`
     margin: 2em 0;
 
@@ -362,7 +358,7 @@ export const Localizacao = styled.section`
 
     figure{
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: wrap-reverse;
         figcaption{
 
             font-size: 20px;

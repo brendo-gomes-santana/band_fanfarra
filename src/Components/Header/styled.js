@@ -10,10 +10,22 @@ export const Main = styled.header`
     box-shadow: 2em 0.5em 1em #F4A50B;
     
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
     z-index: 1000;
     img{
         width: 6em;
     }
 
+`;
+
+export const Navegador = styled.nav`
+    padding: 0 1em;
+
+    a{
+        font-size: 18px;
+        color: #fff;
+        margin: 0 0.5em;
+    }
 `;
