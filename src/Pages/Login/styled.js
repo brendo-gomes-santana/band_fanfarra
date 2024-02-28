@@ -6,14 +6,26 @@ export const Main = styled.section`
 
     display: flex;
     background-color: #004aad;
+    min-height: 100vh;
+    flex-wrap: wrap-reverse;
     img{
-        min-height: 100vh;
-        height: 50vh;
+        max-height: 100vh;
+        min-height: 40vh;
         width: 100%;
-        max-width: 50%;
+        max-width: 720px;
         box-shadow: 0 1px 3em #000;
         z-index: 100;
         border-radius: 0 5em 5em 0;
+    }
+
+    @media (max-width: 1426px){
+
+        padding: 1em;
+        justify-content: center;
+        img{
+            border-radius: 20px;
+            
+        }
     }
 `;
 export const Painel = styled.form`
@@ -25,7 +37,7 @@ export const Painel = styled.form`
     background-color: #004aad;
 
     width: 100%;
-    max-height: 50%;
+    max-width: 720px;
     input, button{
         width: 85%;
         height: 3em;
