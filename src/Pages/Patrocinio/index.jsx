@@ -11,12 +11,15 @@ export default function Patrocinio() {
         <>
             <Header />
             <Main>
-
                 <article>
                     <FaUsers/>
                     <h1>Patrocinadores</h1>
                 </article>
-                
+                <article>
+                    <figure>
+                        <img src="###" alt="###" />
+                    </figure>
+                </article>
             </Main>
         </>
     )
