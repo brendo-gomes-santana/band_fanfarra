@@ -1,28 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import { Navigate } from "react-router-dom";
+
+import { AuthContext } from "../Contexts";
 
 export default function Logado({children}) {
 
-    const [logado, setLogado] = useState(null);
-    const [carregando, setCarregando] = useState(true);
+    const { logado, carregando } = useContext(AuthContext)
 
-    useEffect(() => {
-        (async() => {
-            
-            const user = JSON.parse(localStorage.getItem('@user'))
-
-            
-            if(user){
-                setLogado(user);
-                setCarregando(false)
-                return;
-            }
-
-            setLogado(false)
-            setCarregando(false)
-
-        })()
-    },[])
     if(carregando){
         return(
             <div>

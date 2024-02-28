@@ -1,6 +1,6 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
 
 import { auth } from '../Service';
 
@@ -8,8 +8,10 @@ export const AuthContext = createContext({})
 
 export default function AuthProvide({children}){
     const navigate = useNavigate();
+    
     const [user, setUser] = useState(null);
-   
+    const [carregando, setCarregando] = useState(true);
+
     async function logar(data){
         signInWithEmailAndPassword(auth, data.email, data.password)
         .then((value) => {
@@ -30,12 +32,36 @@ export default function AuthProvide({children}){
         })
     }
 
+    async function deslogar(){
+        signOut(auth)
+        localStorage.clear()
+        setUser(null)
+        navigate('/')
+    }
+
+    useEffect(() => {
+        (async() => {
+            
+            const user = JSON.parse(localStorage.getItem('@user'))
+
+            
+            if(user){
+                setCarregando(false)
+                setUser(user);
+                return;
+            }
+            setCarregando(false)
+            setUser(null)
+        })()
+    },[setUser])
     return(
         <AuthContext.Provider
             value={{
                 user,
                 logado: !!user,
-                logar
+                carregando,
+                logar,
+                deslogar
             }}
         >
             {children}

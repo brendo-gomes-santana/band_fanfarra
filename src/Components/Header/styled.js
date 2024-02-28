@@ -33,4 +33,15 @@ export const Navegador = styled.nav`
     svg{
         font-size: 2em;
     }
+
+    button {
+        background: transparent;
+        border: none;
+        font-size: 1em;
+        color: #fff;
+        margin: 0 0.5em;
+        cursor: pointer;
+        svg{
+        }
+    }
 `;
