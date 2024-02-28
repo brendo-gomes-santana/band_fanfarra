@@ -14,7 +14,7 @@ export const Main = styled.header`
     align-items: center;
     flex-wrap: wrap;
     z-index: 1000;
-    img{
+    img{    
         width: 6em;
     }
 

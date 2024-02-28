@@ -157,7 +157,7 @@ export default function Home() {
             <Comunicacao />
             <Localizacao>
                     <h6 data-aos="fade-up">
-                       <IoLocationSharp/> Localição
+                       <IoLocationSharp/> Localização
                     </h6>
                     <figure data-aos="fade-right">
                         <Mapa/>
