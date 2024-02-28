@@ -22,10 +22,15 @@ export const Main = styled.header`
 
 export const Navegador = styled.nav`
     padding: 0 1em;
-
+    display: flex;
+    align-items: center;
     a{
         font-size: 18px;
         color: #fff;
         margin: 0 0.5em;
+    }
+
+    svg{
+        font-size: 2em;
     }
 `;
