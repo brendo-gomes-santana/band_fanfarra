@@ -9,7 +9,7 @@ export const sizes = {
   };
 
 export const Capa = styled.section`
-    padding: 7em 1em 0 1em;
+    padding: 10em 1em 0 1em;
     h1{
         width: 90%;
         font-size: 80px;
