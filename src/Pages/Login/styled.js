@@ -3,31 +3,31 @@ import styled from "styled-components";
 export const Main = styled.section`
 
     height: 100%;
-    min-height: 95.35vh;
 
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
     background-color: #004aad;
-    padding: 1em;
+    img{
+        min-height: 100vh;
+        height: 50vh;
+        width: 100%;
+        max-width: 50%;
+        box-shadow: 0 1px 3em #000;
+        z-index: 100;
+        border-radius: 0 5em 5em 0;
+    }
 `;
 export const Painel = styled.form`
     display: flex;
     flex-direction: column;
     
-    border: 2px solid #F4A50B;
-    box-shadow: 3px 3px 10px #000;
-    
-    border-radius: 20px;
-    padding: 1em;
+    justify-content: center;
+    align-items: center;
+    background-color: #004aad;
 
     width: 100%;
-    max-width: 720px;
-
-
+    max-height: 50%;
     input, button{
+        width: 85%;
         height: 3em;
         border-radius: 20px;
         border: none;
