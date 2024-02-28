@@ -1,13 +1,15 @@
-import { useEffect } from "react";
-import AOS from "aos"; 
+import { useEffect, useState } from "react";
+import AOS from "aos";
 import { FaDrum } from "react-icons/fa6";
 import { IoLocationSharp } from "react-icons/io5";
 import { GiDrum } from "react-icons/gi";
+import { collection, getDocs } from 'firebase/firestore';
 
 import Comunicacao from "../../Components/Comunicacao";
 import Header from "../../Components/Header";
 import Mapa from "../../Components/Mapa";
 import Footer from "../../Components/Footer";
+import { db } from "../../Service";
 
 import Logo from '../../Image/logo.png';
 import Logo_colegio from '../../Image/logo-colegio.png';
@@ -20,25 +22,53 @@ import logo_vila_da_barra from '../../Image/logo-vila-da-barra.png';
 
 import 'aos/dist/aos.css';
 
-import { BaseCard, Capa, Card, Instrutores, Logos, Projeto, Release,Gestora, Instituicao, Novidades, Evento, Localizacao } from "./styled";
+import { BaseCard, Capa, Card, Instrutores, Logos, Projeto, Release, Gestora, Instituicao, Novidades, Evento, Localizacao } from "./styled";
+
+const ListaRefNovidades = collection(db, "novidades");
 
 export default function Home() {
 
     const instagram_igor = "https://www.instagram.com/igor_moraesx?igsh=Mzk4cDRoaGYyZGdy";
     const instagram_welem = "https://www.instagram.com/welemsilva09?igsh=cjkycDM0M3lsMzJx";
 
+    const [novidades, setNovidades] = useState([]);
+    function conversoDeData(data){
+        const dia = new Date(data).getDate() + 1
+        const mes = new Date(data).getMonth() + 1
+    
+        return `${dia}/${mes}`
+    }
     useEffect(() => {
         AOS.init()
-    },[])
+    }, [])
+    useEffect(() => {
+        (async () => {
+            await getDocs(ListaRefNovidades)
+                .then((snapshot) => {
+                    let lista = [];
+                    snapshot.forEach((doc) => {
+                        lista.push({
+                            id: doc.id,
+                            data: doc.data().data,
+                            descricao: doc.data().descricao
+                        })
+                    })
 
+                    setNovidades(lista)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        })()
+    }, [])
     return (
         <>
             <Header />
             <Capa>
-                <h1 
+                <h1
                     data-aos="zoom-in"
                     data-aos-duration="2000"
-                    >BANDA MARCIAL PROFª FRANCISCA PEREIRA DE ARAÚJO</h1>
+                >BANDA MARCIAL PROFª FRANCISCA PEREIRA DE ARAÚJO</h1>
                 <Instrutores
                     data-aos="zoom-in"
                     data-aos-duration="3000"
@@ -58,18 +88,18 @@ export default function Home() {
                 </Logos>
             </Capa>
             <Projeto>
-                <img 
+                <img
                     src={banda_tocando} alt="banda-tocando"
-                    data-aos="fade-right"/>
+                    data-aos="fade-right" />
                 <article>
                     <h2
                         data-aos="fade-down"
-                        
+
                     >
                         <FaDrum /> Projeto
                     </h2>
-                    <p data-aos="fade-up">O projeto BAMFPA 2023, Deu início no dia 11/06/2023. Com a Chegada dos 
-                        instrutores <a href={instagram_welem} target="blank">Welem Silva</a> e <a href={instagram_igor} target="blank">Igor Moraes</a>. Executaram um trabalho maravilhoso durante 5 meses de 
+                    <p data-aos="fade-up">O projeto BAMFPA 2023, Deu início no dia 11/06/2023. Com a Chegada dos
+                        instrutores <a href={instagram_welem} target="blank">Welem Silva</a> e <a href={instagram_igor} target="blank">Igor Moraes</a>. Executaram um trabalho maravilhoso durante 5 meses de
                         projeto. Tendo encerramento no dia 11/12/2023 ( Último Ensaio Do Ano ).</p>
                 </article>
             </Projeto>
@@ -106,49 +136,41 @@ export default function Home() {
             </Gestora>
             <Instituicao>
                 <h4 data-aos="fade-up" data-aos-duration="1000">
-                    <GiDrum/> INSTITUIÇÃO <GiDrum/>
+                    <GiDrum /> INSTITUIÇÃO <GiDrum />
                 </h4>
                 <figure data-aos="fade-up" data-aos-duration="1500">
-                    <img src={logo_vila_da_barra} alt="logo-vila-da-barra"/>
-                    <img src={musico_musico} alt="logo-musico"/>
+                    <img src={logo_vila_da_barra} alt="logo-vila-da-barra" />
+                    <img src={musico_musico} alt="logo-musico" />
                 </figure>
                 <article data-aos="fade-up" data-aos-duration="2000">
                     <p>
                         <strong>BAMFPA</strong>
                     </p>
                     <p>
-                    Oficialmente somos gerenciados pelo Instituto Musical Vila Da Barra através do projeto “Educando Com Música” 
-                    desde 2022. Pertence ao Distrital De Zona - SUL Da Secretaria Municipal De Educação - SEMED  
+                        Oficialmente somos gerenciados pelo Instituto Musical Vila Da Barra através do projeto “Educando Com Música”
+                        desde 2022. Pertence ao Distrital De Zona - SUL Da Secretaria Municipal De Educação - SEMED
                     </p>
                 </article>
             </Instituicao>
             <Novidades>
                 <article>
                     <h5 data-aos="fade-up">NOVIDADES</h5>
-                    <Evento data-aos="fade-up" data-aos-duration="2000">
-                        <div>
-                            <p>21/02</p>
-                        </div>
-                        <div>
-                            <p>Lançamento do chamado para o ano letivo da banda marcial em 2024.</p>
-                        </div>
-                    </Evento>
-                    <Evento data-aos="fade-up" data-aos-duration="2000">
-                        <div>
-                            <p>21/02</p>
-                        </div>
-                        <div>
-                            <p>Lançamento do chamado para o ano letivo da banda marcial em 2024.</p>
-                        </div>
-                    </Evento>
-                    <Evento data-aos="fade-up" data-aos-duration="2000">
-                        <div>
-                            <p>21/02</p>
-                        </div>
-                        <div>
-                            <p>Lançamento do chamado para o ano letivo da banda marcial em 2024.</p>
-                        </div>
-                    </Evento>
+                    {novidades?.map((item) => {
+                        return (
+                            <Evento 
+                                key={item.id}
+                                data-aos="fade-up" 
+                                data-aos-duration="2000">
+                                <div>
+                                    <p>{conversoDeData(item.data)}</p>
+                                </div>
+                                <div>
+                                    <p>{item.descricao}</p>
+                                </div>
+                            </Evento>
+                        )
+                    })}
+
                 </article>
                 <article data-aos="fade-up">
                     <img src={require('../../Image/todos-juntos.jpg')} alt="todos-juntos" />
@@ -156,18 +178,18 @@ export default function Home() {
             </Novidades>
             <Comunicacao />
             <Localizacao>
-                    <h6 data-aos="fade-up">
-                       <IoLocationSharp/> Localização
-                    </h6>
-                    <figure data-aos="fade-right">
-                        <Mapa/>
-                        <figcaption data-aos="fade-up">
-                            <strong>Enderenço: </strong>
-                            R. Padre Monteiro de Noronha, 285 - Flores, Manaus - AM, 69028-242
-                        </figcaption>
-                    </figure>
+                <h6 data-aos="fade-up">
+                    <IoLocationSharp /> Localização
+                </h6>
+                <figure data-aos="fade-right">
+                    <Mapa />
+                    <figcaption data-aos="fade-up">
+                        <strong>Enderenço: </strong>
+                        R. Padre Monteiro de Noronha, 285 - Flores, Manaus - AM, 69028-242
+                    </figcaption>
+                </figure>
             </Localizacao>
-            <Footer/>
+            <Footer />
         </>
     )
 }

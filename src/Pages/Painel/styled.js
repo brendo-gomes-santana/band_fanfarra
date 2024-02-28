@@ -71,11 +71,17 @@ export const Novidade = styled.div`
 
     display: flex;
     align-items: center;
+    justify-content: space-between;
     
     margin-bottom: 1em;
     padding: 0.5em;
     border-radius: 13px;
     
+    button{
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
 
     p{
         &:first-child{
