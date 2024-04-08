@@ -8,6 +8,7 @@ import Login from "../Pages/Login";
 
 import Logado from "./logado";
 import Painel from "../Pages/Painel";
+import Fale_conosco from "../Pages/Fale_conosco";
 
 export default function Rotas() {
     return (
@@ -30,6 +31,12 @@ export default function Rotas() {
                                 <Painel />
                             </Logado>
                         } />
+                    <Route
+                        path="/fale-conosco"
+                        element={
+                            <Fale_conosco/>
+                        }   
+                        />
                 </Routes>
             </AuthProvide>
         </Router>

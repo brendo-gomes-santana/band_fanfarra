@@ -19,7 +19,7 @@ export default function Header() {
             <Navegador>
                 <Link to="/">Home</Link>
                 <Link to="/patrocinio">Patrocinadores</Link>
-
+                <Link to="/Fale-conosco">Fale conosco</Link>
                 {logado ? (
                     <Link to="/painel">Configuração</Link>
                 ) : (

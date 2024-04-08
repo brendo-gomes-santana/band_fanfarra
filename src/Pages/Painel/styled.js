@@ -19,7 +19,6 @@ export const Titulo = styled.section`
 `;
 
 export const Informacoes = styled.article`
-
     width: 100%;
     max-width: 1280px;
     display: flex;
