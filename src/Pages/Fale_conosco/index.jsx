@@ -1,44 +1,64 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import InputMask from 'react-input-mask'
 
 import { Container, Form, Cep_N } from "./styled";
 import Header from "../../Components/Header";
+import axios from 'axios'
 
 export default function Fale_conosco() {
 
-    const { register } = useForm()
+    const { register, setValue, handleSubmit } = useForm()
 
     const [cep, setCep] = useState("");
+    
     useEffect(() => {
-
         (async() =>{
-            
+            axios.get(`https://viacep.com.br/ws/${cep}/json/`)
+            .then((r) => {
+                setValue('rua', r.data.logradouro)
+                setValue('cidade', r.data.localidade)
+                setValue('estado', r.data.uf)
+                setValue('bairro', r.data.bairro)
+            })
+            .catch(error => {
+                console.log(error)
+            })
         })()
 
     },[cep])
 
 
+    async function handleEnviarForm(data){
+        console.log(data)
+    }
+
     return (
         <>
             <Header />
             <Container>
-                <Form>
-                    <input 
+                <Form onSubmit={handleSubmit(handleEnviarForm)}>
+                    <InputMask 
                         type="text" 
                         placeholder="Nome completo" 
                         {...register('Nome')}/>
-                    <input 
-                        type="text" 
+                    <InputMask 
+                        type="text"
+                        mask="(99) 9 9999-9999" 
                         placeholder="Numero de contato" 
                         {...register('contato')}/>
-                    <input 
+                    <InputMask 
                         type="text" 
+                        mask="(99) 9 9999-9999" 
                         placeholder="segundo numero de contato (opcional)" 
                         {...register("contato_2")}/>
                     <Cep_N>
-                        <input 
+                        <InputMask 
                             type="text" 
-                            placeholder="Cep" 
+                            placeholder="Cep"
+                            mask="99999-999" 
+                            value={cep} 
+                            onChange={ v => setCep(v.target.value)}
                             />
                         <input 
                             type="text" 
@@ -59,12 +79,17 @@ export default function Fale_conosco() {
                     <input 
                         type="text" 
                         placeholder="Estado" 
-                        {...register('Eatado')}
+                        {...register('estado')}
                         />
-                    <select>
+                    <input 
+                        type="text" 
+                        placeholder="Bairro" 
+                        {...register('bairro')}
+                        />
+                    <select {...register('instrumento')}>
                         <optgroup label="SOPRO">
                             <option value="SOPRO">SOPRO</option>
-                            <option value="Euphonio">Euphonio</option>
+                            <option value="Euphonium">Euphonium</option>
                             <option value="Trompete">Trompete</option>
                             <option value="Trompa">Trompa</option>
                             <option value="Trobonito">Trobonito</option>
