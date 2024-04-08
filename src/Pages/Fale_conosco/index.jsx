@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import InputMask from 'react-input-mask'
 import emailjs from '@emailjs/browser';
+import { toast } from 'react-toastify';
 
 import { Container, Form, Cep_N } from "./styled";
 import Header from "../../Components/Header";
@@ -9,10 +10,11 @@ import axios from 'axios'
 
 export default function Fale_conosco() {
 
-    const { register, setValue, handleSubmit } = useForm()
+    const { register, setValue, handleSubmit, reset } = useForm()
 
     const [cep, setCep] = useState("");
-    
+    const [carregando, setCarregando] = useState(false);
+
     useEffect(() => {
         (async() =>{
             axios.get(`https://viacep.com.br/ws/${cep}/json/`)
@@ -31,14 +33,18 @@ export default function Fale_conosco() {
 
 
     async function handleEnviarForm(data){
-        emailjs.send('service_vd7pa89', 'template_h67knkh', data, 'wlDslkZKwlcecTwVf')
+        setCarregando(true)
+        emailjs.send('service_vd7pa89', 'template_h67knkh', data, process.env.REACT_APP_EMAIL_KEY)
         .then((r) => {
             console.log(r)
-            alert('Enviada com sucesso')
+            toast.success('Enviada com sucesso')
+            setCarregando(false)
+            reset()
         })
         .catch((error) => {
             console.error(error)
-            alert('Algo deu errado')
+            toast.error('Algo deu errado')
+            setCarregando(false)
         })
     }
 
@@ -120,7 +126,7 @@ export default function Fale_conosco() {
                             <option value="Tenor(quinton)">Tenor (quinton)</option>
                         </optgroup>
                     </select>
-                    <button>ENVIAR</button>
+                    <button>{carregando ? 'Carregando...' : 'Enviar'}</button>
                 </Form>
             </Container>
         </>
