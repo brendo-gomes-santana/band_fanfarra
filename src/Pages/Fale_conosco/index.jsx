@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import InputMask from 'react-input-mask'
+import emailjs from '@emailjs/browser';
 
 import { Container, Form, Cep_N } from "./styled";
 import Header from "../../Components/Header";
@@ -30,18 +31,31 @@ export default function Fale_conosco() {
 
 
     async function handleEnviarForm(data){
-        console.log(data)
+        emailjs.send('service_vd7pa89', 'template_h67knkh', data, 'wlDslkZKwlcecTwVf')
+        .then((r) => {
+            console.log(r)
+            alert('Enviada com sucesso')
+        })
+        .catch((error) => {
+            console.error(error)
+            alert('Algo deu errado')
+        })
     }
 
     return (
         <>
             <Header />
             <Container>
+                <h1>Fale conosco</h1>
                 <Form onSubmit={handleSubmit(handleEnviarForm)}>
-                    <InputMask 
+                    <input 
                         type="text" 
                         placeholder="Nome completo" 
-                        {...register('Nome')}/>
+                        {...register('nome')}/>
+                    <input 
+                        type="text" 
+                        placeholder="Email" 
+                        {...register('email')}/>
                     <InputMask 
                         type="text"
                         mask="(99) 9 9999-9999" 
@@ -87,6 +101,7 @@ export default function Fale_conosco() {
                         {...register('bairro')}
                         />
                     <select {...register('instrumento')}>
+                        <option value="">Selecione o instrumento que gostária de tocar</option>
                         <optgroup label="SOPRO">
                             <option value="SOPRO">SOPRO</option>
                             <option value="Euphonium">Euphonium</option>

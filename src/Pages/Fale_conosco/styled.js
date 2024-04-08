@@ -9,6 +9,11 @@ export const Container = styled.main`
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+
+    h1{
+        color: #F4A50B;
+    }
 `;
 export const Form = styled.form`
     margin: 1em;
